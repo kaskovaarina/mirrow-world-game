@@ -24,41 +24,22 @@ COLOR_PLAYER_DARK = arcade.color.VIOLET
 COLOR_HIGHLIGHT = arcade.color.YELLOW
 
 LEVEL_DATA = [
-    {"light": [(100, 50), (300, 150), (550, 250)], "dark": [(420, 200), (650, 300)], "items": [(420, 250)],
-     "exit": (750, 340)},
-    {"light": [(100, 50), (400, 200), (700, 400)], "dark": [(250, 120), (550, 300)], "items": [(250, 170), (550, 350)],
-     "exit": (750, 480)},
-    {"light": [(100, 50), (100, 250), (100, 450)], "dark": [(250, 150), (250, 350), (250, 550)],
-     "items": [(250, 200), (100, 300)],
-     "exit": (100, 530)},
-    {"light": [(100, 50), (400, 200), (700, 350)], "dark": [(250, 125), (550, 275)], "items": [(250, 170)],
-     "exit": (750, 450)},
-    {"light": [(100, 50), (300, 150), (400, 250), (200, 350), (650, 460)], "dark": [(200, 100), (400, 200), (375, 400)],
-     "items": [(400, 250)],
-     "exit": (750, 550)},
-    {"light": [(100, 50), (300, 50), (500, 50)], "dark": [(200, 150), (400, 150), (600, 150)], "items": [(400, 200)],
-     "exit": (700, 200)},
-    {"light": [(100, 50), (250, 160), (100, 350)], "dark": [(380, 125), (360, 275), (400, 425)], "items": [(365, 320)],
-     "exit": (100, 500)},
-    {"light": [(100, 50), (300, 100), (500, 100)], "dark": [(200, 150), (400, 250), (600, 350)], "items": [(600, 400)],
-     "exit": (750, 450)},
-    {"light": [(100, 50), (500, 50), (700, 200)], "dark": [(300, 50), (600, 120)], "items": [(300, 100)],
-     "exit": (750, 300)},
-    {"light": [(100, 50), (300, 250)], "dark": [(200, 150), (400, 350)], "items": [(400, 400)],
-     "exit": (500, 450)},
-    {"light": [(100, 50), (400, 100), (700, 100)], "dark": [(250, 180), (550, 250)], "items": [(550, 300)],
-     "exit": (750, 350)},
-    {"light": [(100, 50), (200, 150), (350, 250)], "dark": [(150, 100), (250, 200), (450, 300)], "items": [(350, 350)],
-     "exit": (550, 350)},
-    {"light": [(100, 50), (500, 400)], "dark": [(200, 150), (300, 250), (400, 350)], "items": [(300, 300)],
-     "exit": (600, 450)},
-    {"light": [(100, 50), (300, 100), (100, 200), (300, 300)], "dark": [(200, 150), (400, 250), (200, 350)],
-     "items": [(400, 300)],
-     "exit": (500, 400)},
-    {"light": [(100, 50), (400, 250), (700, 450)], "dark": [(250, 150), (550, 350)], "items": [(600, 500)],
-     "exit": (750, 550)}
+    {"light": [(100, 50), (300, 150), (550, 250)], "dark": [(420, 200), (650, 300)], "items": [(420, 250)], "exit": (750, 340)},
+    {"light": [(100, 50), (400, 200), (700, 400)], "dark": [(250, 120), (550, 300)], "items": [(250, 170), (550, 350)], "exit": (750, 480)},
+    {"light": [(100, 50), (100, 250), (100, 450)], "dark": [(250, 150), (250, 350), (250, 550)], "items": [(250, 200), (100, 300)], "exit": (100, 530)},
+    {"light": [(100, 50), (400, 200), (700, 350)], "dark": [(250, 125), (550, 275)], "items": [(250, 170)], "exit": (750, 450)},
+    {"light": [(100, 50), (300, 150), (400, 250), (200, 350), (650, 460)], "dark": [(200, 100), (400, 200), (375, 400)], "items": [(400, 250)], "exit": (750, 550)},
+    {"light": [(100, 50), (300, 50), (500, 50)], "dark": [(200, 150), (400, 150), (600, 150)], "items": [(400, 200)], "exit": (700, 200)},
+    {"light": [(100, 50), (250, 160), (100, 350)], "dark": [(380, 125), (360, 275), (400, 425)], "items": [(365, 320)], "exit": (100, 500)},
+    {"light": [(100, 50), (300, 100), (500, 100)], "dark": [(200, 150), (400, 250), (600, 350)], "items": [(600, 400)], "exit": (750, 450)},
+    {"light": [(100, 50), (500, 50), (700, 200)], "dark": [(300, 50), (600, 120)], "items": [(300, 100)], "exit": (750, 300)},
+    {"light": [(100, 50), (300, 250)], "dark": [(200, 150), (400, 350)], "items": [(400, 400)], "exit": (500, 450)},
+    {"light": [(100, 50), (400, 100), (700, 100)], "dark": [(250, 180), (550, 250)], "items": [(550, 300)], "exit": (750, 350)},
+    {"light": [(100, 50), (200, 150), (350, 250)], "dark": [(150, 100), (250, 200), (450, 300)], "items": [(350, 350)], "exit": (550, 350)},
+    {"light": [(100, 50), (500, 400)], "dark": [(200, 150), (300, 250), (400, 350)], "items": [(300, 300)], "exit": (600, 450)},
+    {"light": [(100, 50), (300, 100), (100, 200), (300, 300)], "dark": [(200, 150), (400, 250), (200, 350)], "items": [(400, 300)], "exit": (500, 400)},
+    {"light": [(100, 50), (400, 250), (700, 450)], "dark": [(250, 150), (550, 350)], "items": [(600, 500)], "exit": (750, 550)}
 ]
-
 
 def init_database():
     conn = sqlite3.connect(DB_FILE)
@@ -71,16 +52,13 @@ def init_database():
     conn.commit()
     conn.close()
 
-
 def save_score(player_name, score):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    c.execute("INSERT INTO scores (player_name, score, date) VALUES (?, ?, ?)",
-              (player_name, score, current_date))
+    c.execute("INSERT INTO scores (player_name, score, date) VALUES (?, ?, ?)", (player_name, score, current_date))
     conn.commit()
     conn.close()
-
 
 def get_top_scores(limit=10):
     conn = sqlite3.connect(DB_FILE)
@@ -89,7 +67,6 @@ def get_top_scores(limit=10):
     results = c.fetchall()
     conn.close()
     return results
-
 
 class NameInputView(arcade.View):
     def __init__(self):
@@ -114,11 +91,9 @@ class NameInputView(arcade.View):
         display_text = self.player_name
         if self.cursor_visible and self.cursor_timer < 30:
             display_text += "|"
-        arcade.draw_text(display_text, SCREEN_WIDTH / 2, 350, arcade.color.WHITE, 28,
-                         anchor_x="center", anchor_y="center")
+        arcade.draw_text(display_text, SCREEN_WIDTH / 2, 350, arcade.color.WHITE, 28, anchor_x="center", anchor_y="center")
         arcade.draw_text("ENTER - начать игру", SCREEN_WIDTH / 2, 280, arcade.color.LIGHT_GRAY, 18, anchor_x="center")
-        arcade.draw_text("BACKSPACE - удалить символ", SCREEN_WIDTH / 2, 250, arcade.color.LIGHT_GRAY, 16,
-                         anchor_x="center")
+        arcade.draw_text("BACKSPACE - удалить символ", SCREEN_WIDTH / 2, 250, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
         arcade.draw_text("ESC - выйти", SCREEN_WIDTH / 2, 220, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
         if self.error_message:
             arcade.draw_text(self.error_message, SCREEN_WIDTH / 2, 180, arcade.color.RED, 16, anchor_x="center")
@@ -154,7 +129,6 @@ class NameInputView(arcade.View):
                 self.player_name += char
                 self.error_message = ""
 
-
 class MenuView(arcade.View):
     def on_show(self):
         arcade.set_background_color(arcade.color.DARK_BLUE)
@@ -162,10 +136,8 @@ class MenuView(arcade.View):
     def on_draw(self):
         self.clear()
         arcade.draw_text("ЗЕРКАЛЬНЫЙ МИР", SCREEN_WIDTH / 2, 450, arcade.color.WHITE, 40, anchor_x="center")
-        arcade.draw_text("ENTER - начать | TAB - таблица лидеров | ESC - выход",
-                         SCREEN_WIDTH / 2, 320, arcade.color.WHITE, 18, anchor_x="center")
-        arcade.draw_text("Собери золото в тёмном мире и дойди до двери!",
-                         SCREEN_WIDTH / 2, 260, arcade.color.LIGHT_GRAY, 14, anchor_x="center")
+        arcade.draw_text("ENTER - начать | TAB - таблица лидеров | ESC - выход", SCREEN_WIDTH / 2, 320, arcade.color.WHITE, 18, anchor_x="center")
+        arcade.draw_text("Собери золото в тёмном мире и дойди до двери!", SCREEN_WIDTH / 2, 260, arcade.color.LIGHT_GRAY, 14, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.ENTER:
@@ -174,7 +146,6 @@ class MenuView(arcade.View):
             self.window.show_view(LeaderboardView())
         elif key == arcade.key.ESCAPE:
             arcade.close_window()
-
 
 class LeaderboardView(arcade.View):
     def on_show(self):
@@ -191,29 +162,24 @@ class LeaderboardView(arcade.View):
         arcade.draw_line(50, 460, SCREEN_WIDTH - 50, 460, arcade.color.WHITE, 2)
         y_pos = 430
         for i, (name, score, date_str) in enumerate(top_scores, 1):
-            place_color = arcade.color.GOLD if i == 1 else \
-                arcade.color.SILVER if i == 2 else \
-                    arcade.color.COPPER if i == 3 else \
-                        arcade.color.WHITE
+            place_color = arcade.color.GOLD if i == 1 else arcade.color.SILVER if i == 2 else arcade.color.COPPER if i == 3 else arcade.color.WHITE
             arcade.draw_text(str(i), 100, y_pos, place_color, 18, anchor_x="center")
             arcade.draw_text(name[:15], 300, y_pos, arcade.color.WHITE, 18, anchor_x="center")
             arcade.draw_text(str(score), 500, y_pos, arcade.color.GOLD, 18, anchor_x="center")
             try:
                 date_obj = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
                 short_date = date_obj.strftime("%d.%m.%Y")
-            except:
+            except Exception:
                 short_date = date_str[:10]
             arcade.draw_text(short_date, 700, y_pos, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
             y_pos -= 35
         if not top_scores:
-            arcade.draw_text("Пока нет результатов!", SCREEN_WIDTH / 2, 400,
-                             arcade.color.LIGHT_GRAY, 24, anchor_x="center")
+            arcade.draw_text("Пока нет результатов!", SCREEN_WIDTH / 2, 400, arcade.color.LIGHT_GRAY, 24, anchor_x="center")
         arcade.draw_text("ESC - в меню", SCREEN_WIDTH / 2, 100, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.ESCAPE:
             self.window.show_view(MenuView())
-
 
 class GameOverView(arcade.View):
     def __init__(self, player_name, score):
@@ -238,30 +204,23 @@ class GameOverView(arcade.View):
         arcade.draw_text(f"Ваш счет: {self.score}", SCREEN_WIDTH / 2, 460, arcade.color.GOLD, 24, anchor_x="center")
         if self.player_place:
             place_text = f"Ваше место в таблице лидеров: {self.player_place}"
-            place_color = arcade.color.GOLD if self.player_place == 1 else \
-                arcade.color.SILVER if self.player_place == 2 else \
-                    arcade.color.COPPER if self.player_place == 3 else \
-                        arcade.color.GREEN
+            place_color = arcade.color.GOLD if self.player_place == 1 else arcade.color.SILVER if self.player_place == 2 else arcade.color.COPPER if self.player_place == 3 else arcade.color.GREEN
             arcade.draw_text(place_text, SCREEN_WIDTH / 2, 420, place_color, 20, anchor_x="center")
         else:
-            arcade.draw_text("Ваш результат в таблице лидеров", SCREEN_WIDTH / 2, 420, arcade.color.YELLOW, 20,
-                             anchor_x="center")
+            arcade.draw_text("Ваш результат в таблице лидеров", SCREEN_WIDTH / 2, 420, arcade.color.YELLOW, 20, anchor_x="center")
         arcade.draw_text("ТОП-5:", SCREEN_WIDTH / 2, 370, arcade.color.YELLOW, 20, anchor_x="center")
         y_pos = 330
-        for i, (name, score_val, date_str) in enumerate(self.top_scores[:5], 1):
+        for i, (name, score_val, _) in enumerate(self.top_scores[:5], 1):
             text_color = COLOR_HIGHLIGHT if name == self.player_name and score_val == self.score else arcade.color.WHITE
-            arcade.draw_text(f"{i}. {name[:15]:15} - {score_val:3}",
-                             SCREEN_WIDTH / 2, y_pos, text_color, 18, anchor_x="center")
+            arcade.draw_text(f"{i}. {name[:15]:15} - {score_val:3}", SCREEN_WIDTH / 2, y_pos, text_color, 18, anchor_x="center")
             y_pos -= 30
-        arcade.draw_text("ENTER - в меню | TAB - полная таблица лидеров",
-                         SCREEN_WIDTH / 2, 150, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
+        arcade.draw_text("ENTER - в меню | TAB - полная таблица лидеров", SCREEN_WIDTH / 2, 150, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.ENTER:
             self.window.show_view(MenuView())
         elif key == arcade.key.TAB:
             self.window.show_view(LeaderboardView())
-
 
 class GameView(arcade.View):
     def __init__(self, player_name):
@@ -270,6 +229,7 @@ class GameView(arcade.View):
         self.light_world = True
         self.level = 1
         self.score = 0
+        self.level_start_score = 0
         self.player_list = arcade.SpriteList()
         self.light_pl = arcade.SpriteList()
         self.dark_pl = arcade.SpriteList()
@@ -297,6 +257,7 @@ class GameView(arcade.View):
     def setup(self):
         self.light_world = True
         self.anim_timer = 0
+        self.level_start_score = self.score
         self.player_list.clear()
         self.light_pl.clear()
         self.dark_pl.clear()
@@ -348,10 +309,7 @@ class GameView(arcade.View):
             self.light_world = not self.light_world
             self.update_physics()
             self.anim_timer = 0
-            if self.light_world:
-                self.player.texture = self.player_textures_light[0]
-            else:
-                self.player.texture = self.player_textures_dark[0]
+            self.player.texture = self.player_textures_light[0] if self.light_world else self.player_textures_dark[0]
         elif key in (arcade.key.W, arcade.key.UP) and self.physics_engine.can_jump():
             self.player.change_y = JUMP_SPEED
             if self.jump_sound:
@@ -386,16 +344,14 @@ class GameView(arcade.View):
             self.level += 1
             self.setup()
         if self.player.center_y < -50:
-            self.score = max(0, self.score - 1)
+            self.score = self.level_start_score
             self.setup()
-
 
 def main():
     init_database()
     window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     window.show_view(MenuView())
     arcade.run()
-
 
 if __name__ == "__main__":
     main()
