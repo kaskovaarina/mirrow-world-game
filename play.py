@@ -2,10 +2,11 @@ import arcade
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "Зеркальный мир"
+SCREEN_TITLE = "Зеркальный мир: 5 уровней"
 GRAVITY = 0.6
 JUMP_SPEED = 12
 MOVEMENT_SPEED = 5
+
 
 class MirrorWorldGame(arcade.Window):
     def __init__(self):
@@ -14,17 +15,19 @@ class MirrorWorldGame(arcade.Window):
         self.light_world = True
         self.level = 1
         self.score = 0
+
         self.player_list = arcade.SpriteList()
-        self.light_pl= arcade.SpriteList()
+        self.light_pl = arcade.SpriteList()
         self.dark_pl = arcade.SpriteList()
         self.items_list = arcade.SpriteList()
         self.exit_list = arcade.SpriteList()
 
         self.player = None
         self.physics_engine = None
+
         self.u_text = arcade.Text("", 10, 50, arcade.color.WHITE, 12)
         self.info_text = arcade.Text(
-            "пробел - сменить мир, золото видно в темном мире, W/UP - прыжок",
+            "Пробел - сменить мир | Золото только в темном мире | W/UP - прыжок",
             10, 20, arcade.color.WHITE, 10
         )
 
@@ -37,31 +40,52 @@ class MirrorWorldGame(arcade.Window):
         self.exit_list.clear()
 
         if self.level == 1:
-            light_pl = [(100, 50), (300, 150), (550, 250)]
-            dark_pl = [(420, 200), (650, 300)]
-            items = [(420, 250)]
+            light_pl_coords = [(100, 50), (300, 150), (550, 250)]
+            dark_pl_coords = [(420, 200), (650, 300)]
+            items_coords = [(420, 250)]
             exit_pos = (750, 340)
+
         elif self.level == 2:
-            light_pl = [(100, 50), (400, 200), (700, 400)]
-            dark_pl = [(250, 120), (550, 300)]
-            items = [(250, 170), (550, 350)]
+            light_pl_coords = [(100, 50), (400, 200), (700, 400)]
+            dark_pl_coords = [(250, 120), (550, 300)]
+            items_coords = [(250, 170), (550, 350)]
             exit_pos = (750, 480)
+
+        elif self.level == 3:
+            light_pl_coords = [(100, 50), (100, 250), (100, 450)]
+            dark_pl_coords = [(250, 150), (250, 350), (250, 550)]
+            items_coords = [(250, 200), (100, 300), (250, 400)]
+            exit_pos = (100, 530)
+
+        elif self.level == 4:
+            light_pl_coords = [(100, 50), (250, 125), (400, 200), (550, 275), (700, 350)]
+            dark_pl_coords = [(250, 125), (550, 275)]
+            items_coords = [(250, 170), (550, 320)]
+            exit_pos = (750, 450)
+
+        elif self.level == 5:
+            light_pl_coords = [(100, 50), (300, 150), (500, 150), (200, 350), (600, 450)]
+            dark_pl_coords = [(200, 100), (400, 250), (600, 250), (400, 450), (200, 550)]
+            items_coords = [(400, 300), (600, 300), (200, 400), (400, 500)]
+            exit_pos = (750, 550)
+
         else:
             self.level = 1
             self.score = 0
             self.setup()
             return
-        for x, y in light_pl:
+
+        for x, y in light_pl_coords:
             wall = arcade.SpriteSolidColor(120, 20, color=arcade.color.GREEN)
             wall.center_x, wall.center_y = x, y
             self.light_pl.append(wall)
 
-        for x, y in dark_pl:
+        for x, y in dark_pl_coords:
             wall = arcade.SpriteSolidColor(120, 20, color=arcade.color.RED)
             wall.center_x, wall.center_y = x, y
             self.dark_pl.append(wall)
 
-        for x, y in items:
+        for x, y in items_coords:
             item = arcade.SpriteSolidColor(20, 20, color=arcade.color.GOLD)
             item.center_x, item.center_y = x, y
             self.items_list.append(item)
@@ -69,9 +93,13 @@ class MirrorWorldGame(arcade.Window):
         door = arcade.SpriteSolidColor(40, 60, color=arcade.color.BROWN)
         door.center_x, door.center_y = exit_pos
         self.exit_list.append(door)
+
         self.player = arcade.SpriteSolidColor(30, 30, color=arcade.color.WHITE)
         self.player.center_x, self.player.center_y = 100, 100
+        self.player.change_x = 0
+        self.player.change_y = 0
         self.player_list.append(self.player)
+
         self.update_physics()
 
     def update_physics(self):
@@ -122,11 +150,14 @@ class MirrorWorldGame(arcade.Window):
             for item in items_hit:
                 item.remove_from_sprite_lists()
                 self.score += 1
+
         if arcade.check_for_collision_with_list(self.player, self.exit_list):
             self.level += 1
             self.setup()
+
         if self.player.center_y < -50:
             self.setup()
+
 
 if __name__ == "__main__":
     game = MirrorWorldGame()
