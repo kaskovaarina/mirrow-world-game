@@ -202,26 +202,115 @@ class GameOverView(arcade.View):
                 break
 
     def on_show(self):
-        arcade.set_background_color(arcade.color.DARK_BLUE)
+        arcade.set_background_color(arcade.color.DARK_MIDNIGHT_BLUE)
 
     def on_draw(self):
         self.clear()
-        arcade.draw_text("ИГРА ЗАВЕРШЕНА", SCREEN_WIDTH / 2, 550, arcade.color.WHITE, 36, anchor_x="center")
-        arcade.draw_text(f"Игрок: {self.player_name}", SCREEN_WIDTH / 2, 500, arcade.color.CYAN, 24, anchor_x="center")
-        arcade.draw_text(f"Ваш счет: {self.score}", SCREEN_WIDTH / 2, 460, arcade.color.GOLD, 24, anchor_x="center")
-        if self.player_place:
-            place_text = f"Ваше место в таблице лидеров: {self.player_place}"
-            place_color = arcade.color.GOLD if self.player_place == 1 else arcade.color.SILVER if self.player_place == 2 else arcade.color.COPPER if self.player_place == 3 else arcade.color.GREEN
-            arcade.draw_text(place_text, SCREEN_WIDTH / 2, 420, place_color, 20, anchor_x="center")
-        else:
-            arcade.draw_text("Ваш результат в таблице лидеров", SCREEN_WIDTH / 2, 420, arcade.color.YELLOW, 20, anchor_x="center")
-        arcade.draw_text("ТОП-5:", SCREEN_WIDTH / 2, 370, arcade.color.YELLOW, 20, anchor_x="center")
-        y_pos = 330
-        for i, (name, score_val, _) in enumerate(self.top_scores[:5], 1):
-            text_color = COLOR_HIGHLIGHT if name == self.player_name and score_val == self.score else arcade.color.WHITE
-            arcade.draw_text(f"{i}. {name[:15]:15} - {score_val:3}", SCREEN_WIDTH / 2, y_pos, text_color, 18, anchor_x="center")
-            y_pos -= 30
-        arcade.draw_text("ENTER - в меню | TAB - полная таблица лидеров", SCREEN_WIDTH / 2, 150, arcade.color.LIGHT_GRAY, 16, anchor_x="center")
+        panel_w = 620
+        panel_h = 460
+        panel_left = SCREEN_WIDTH / 2 - panel_w / 2
+        panel_right = SCREEN_WIDTH / 2 + panel_w / 2
+        panel_bottom = SCREEN_HEIGHT / 2 - panel_h / 2
+        panel_top = SCREEN_HEIGHT / 2 + panel_h / 2
+        arcade.draw_lrbt_rectangle_filled(
+            panel_left + 8, panel_right + 8,
+            panel_bottom - 8, panel_top - 8,
+            arcade.color.BLACK_OLIVE
+        )
+        arcade.draw_lrbt_rectangle_filled(
+            panel_left, panel_right,
+            panel_bottom, panel_top,
+            arcade.color.AIR_FORCE_BLUE
+        )
+        arcade.draw_lrbt_rectangle_outline(
+            panel_left, panel_right,
+            panel_bottom, panel_top,
+            arcade.color.WHITE, 3
+        )
+        arcade.draw_text(
+            "ИГРА ЗАВЕРШЕНА",
+            SCREEN_WIDTH / 2, panel_top - 70,
+            arcade.color.WHITE, 40,
+            anchor_x="center"
+        )
+        arcade.draw_text(
+            f"Игрок: {self.player_name}",
+            SCREEN_WIDTH / 2, panel_top - 130,
+            arcade.color.CYAN, 24,
+            anchor_x="center"
+        )
+        arcade.draw_text(
+            f"Ваш счёт: {self.score}",
+            SCREEN_WIDTH / 2, panel_top - 170,
+            arcade.color.GOLD, 26,
+            anchor_x="center"
+        )
+        if self.player_place is not None:
+            if self.player_place == 1:
+                place_color = arcade.color.GOLD
+            elif self.player_place == 2:
+                place_color = arcade.color.SILVER
+            elif self.player_place == 3:
+                place_color = arcade.color.COPPER
+            else:
+                place_color = arcade.color.LIGHT_GREEN
+            arcade.draw_text(
+                f"Место в таблице лидеров: {self.player_place}",
+                SCREEN_WIDTH / 2, panel_top - 210,
+                place_color, 20,
+                anchor_x="center"
+            )
+        arcade.draw_line(
+            panel_left + 30, panel_top - 240,
+            panel_right - 30, panel_top - 240,
+            arcade.color.WHITE, 2
+        )
+        arcade.draw_text(
+            "ТОП-5",
+            SCREEN_WIDTH / 2, panel_top - 275,
+            arcade.color.YELLOW, 24,
+            anchor_x="center"
+        )
+        top5 = self.top_scores[:5]
+        start_y = panel_top - 320
+        row_h = 38
+        for i, (name, score_val, date_str) in enumerate(top5, 1):
+            y = start_y - (i - 1) * row_h
+            is_me = (name == self.player_name and score_val == self.score)
+            row_bg = arcade.color.DARK_SLATE_BLUE if is_me else arcade.color.AIR_FORCE_BLUE
+            row_text = arcade.color.YELLOW if is_me else arcade.color.WHITE
+            arcade.draw_lrbt_rectangle_filled(
+                panel_left + 40, panel_right - 40,
+                y - 10, y + 22,
+                row_bg
+            )
+            arcade.draw_lrbt_rectangle_outline(
+                panel_left + 40, panel_right - 40,
+                y - 10, y + 22,
+                arcade.color.WHITE, 1
+            )
+            arcade.draw_text(
+                f"{i}.",
+                panel_left + 60, y,
+                row_text, 18
+            )
+            arcade.draw_text(
+                f"{name[:18]}",
+                panel_left + 95, y,
+                row_text, 18
+            )
+            arcade.draw_text(
+                f"{score_val}",
+                panel_right - 70, y,
+                arcade.color.GOLD, 18,
+                anchor_x="right"
+            )
+        arcade.draw_text(
+            "ENTER — в меню    |    TAB — таблица лидеров",
+            SCREEN_WIDTH / 2, panel_bottom + 35,
+            arcade.color.WHITE_SMOKE, 16,
+            anchor_x="center"
+        )
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.ENTER:
